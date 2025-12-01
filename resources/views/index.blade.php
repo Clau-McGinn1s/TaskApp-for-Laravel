@@ -3,7 +3,7 @@
 @section('content')
     @forelse ($tasks as $task)
         <div>
-            <a href='{{route('tasks.show', ['id' => $task->id])}}'><h3>{{$task->title}}</h3></a>
+            <a href='{{route('tasks.show', ['id' => $task->id])}}'><h3>{{$task->title}}{{$task->completed ? '     ✓' : ''}}</h3></a>
             <p>{{$task->description}}</p>
         </div>
     @empty

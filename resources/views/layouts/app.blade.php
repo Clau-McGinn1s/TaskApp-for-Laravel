@@ -10,8 +10,8 @@
     </head>
       
     <body class='bg-gray-300 lg:justify-center min-h-screen '>
-        <h1 class='text-2xl text-blue-950'>@yield('title')</h1>
-        <div class='bg-amber-50 space-y-2'>
+        <h1 class='text-2xl text-blue-950 mx-6'>@yield('title')</h1>
+        <div class='bg-amber-50 space-y-2 px-3 mx-3 rounded-2xl'>
             @yield('content')
         </div>
     </body>

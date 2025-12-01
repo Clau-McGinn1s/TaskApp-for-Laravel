@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Task detail: ' . $task->title)
 @section('content')
-    <h2>Task: {{$task->title}}</h2>
+    <h2>Task: {{$task->title}}{{$task->completed ? '     ✓' : ''}}</h2>
     <h3>Info: {{$task->description}}</h3>
     @isset($task->long_description)
         <p>Description: {{$task->long_description}}</p>
