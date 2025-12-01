@@ -13,7 +13,46 @@
 a{
     color: blue;
     text-decoration-line: underline;
+    
 }
 a:hover{
     color: blueviolet;
+}
+a.btn{
+    background-color: var(--color-blue-500);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-white);
+    border-radius: 10px;
+}
+a.btn:hover{
+    background-color: var(--color-purple-500);
+}
+
+input{
+    background-color: var(--color-blue-100);
+    border-width: thin;
+    border-color: var(--color-blue-300);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+textarea{
+    background-color: var(--color-blue-100);
+    border-width: thin;
+    border-color: var(--color-blue-300);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+button{
+    background-color: var(--color-gray-500);
+    padding: 10px;
+    text-align: center;
+    color: var(--color-white);
+    border-radius: 10px;
+}
+button:hover{
+    background-color: var(--color-gray-600);
 }

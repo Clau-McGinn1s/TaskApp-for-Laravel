@@ -10,5 +10,5 @@
     <p>Updated at: {{$task->updated_at}}</p>
 
 
-    <a href='{{ route('tasks.index') }}'>Return</a>
+    <a class='btn' href='{{ route('tasks.index') }}'>Return</a>
 @endsection
