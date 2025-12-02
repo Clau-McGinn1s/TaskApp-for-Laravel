@@ -3,17 +3,19 @@
 @section('content')
     @forelse ($tasks as $task)
         <div class='mb-5'>
-            <a href='{{route('tasks.show', ['task' => $task])}}'><h3>{{$task->title}}{{$task->completed ? '     ✓' : ''}}</h3></a>
+            <a @class(['font-bold text-xl text-blue-600 hover:text-blue-300', 'line-through' => $task->completed]) href='{{route('tasks.show', ['task' => $task])}}'><h3>{{$task->title}}</h3></a>
             <p>{{$task->description}}</p>
         </div>
     @empty
         <h2>no tasks</h2>
     @endforelse
+    <nav class='pt-5 flex items-center'>
+        <a class='grow btn bg-blue-500 hover:bg-blue-300 text-white' href='tasks/create'>Add New Task</a>
+    </nav>
 
-    <a class='btn pt-16 text-1xl' href='tasks/create'>Add New Task</a>
     @if ($tasks->count())
-        <div class='pt-16'>
+        <nav class='pt-2'>
             {{ $tasks->links() }}
-        </div>
+        </nav>
     @endif
 @endsection

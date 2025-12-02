@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 Route::get('/tasks', function () {
     return view('index', [
-        'tasks' => Task::latest()->paginate(3)
+        'tasks' => Task::latest()->paginate(7)
     ]);
 })->name('tasks.index');
 
@@ -39,6 +39,16 @@ Route::put('/tasks/{task}', function(TaskRequest $request, Task $task){
     return redirect()->route('tasks.show', ['task' => $task])
         ->with('success', 'Task edited succesfully!');
 })->name('tasks.update');
+
+Route::put('/tasks/{task}/toggle', function(Task $task){
+    $task->completed = !$task->completed;
+    $task->save();
+
+    $flash = $task->completed === true ? 'completed' : 'uncompleted';
+
+    return redirect()->route('tasks.show', ['task' => $task])
+        ->with('success', 'Task marked ' . $flash . '!');
+})->name('tasks.toggle');
 
 Route::post('/tasks', function(TaskRequest $request){
     $task = Task::create($request->validated());
