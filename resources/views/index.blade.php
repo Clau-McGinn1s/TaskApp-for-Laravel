@@ -9,5 +9,11 @@
     @empty
         <h2>no tasks</h2>
     @endforelse
-    <a class='btn pt-16 text-2xl' href='tasks/create'>Add New Task</a>
+
+    <a class='btn pt-16 text-1xl' href='tasks/create'>Add New Task</a>
+    @if ($tasks->count())
+        <div class='pt-16'>
+            {{ $tasks->links() }}
+        </div>
+    @endif
 @endsection

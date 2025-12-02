@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 Route::get('/tasks', function () {
     return view('index', [
-        'tasks' => Task::latest()->get()
+        'tasks' => Task::latest()->paginate(3)
     ]);
 })->name('tasks.index');
 
