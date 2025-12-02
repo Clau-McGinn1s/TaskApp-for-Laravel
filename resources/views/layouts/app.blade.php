@@ -11,6 +11,11 @@
       
     <body class='bg-gray-300 lg:justify-center min-h-screen '>
         <h1 class='text-5xl text-blue-950 mx-6 py-2'>@yield('title')</h1>
+        @if (session()->has('success'))
+            <div class='bg-green-500  px-3 mx-3 py-0 rounded-2xl'>
+                <h1 class='text-1xl text-green-950 mx-6'>{{session('success')}}</h1>
+            </div>
+        @endif
         <div class='bg-amber-50 space-y-2 px-3 mx-3 py-3 rounded-2xl'>
             @yield('content')
         </div>

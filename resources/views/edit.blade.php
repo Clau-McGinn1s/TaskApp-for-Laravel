@@ -1,14 +1,15 @@
 @extends('layouts.app')
-@section('title', 'Create new task')
+@section('title', 'Edit task')
 @section('content')
-    <p>NEW TASK FORM!</p>
-    <form method="POST" action="{{route('tasks.store')}}">
+    <p>EDIT TASK FORM!</p>
+    <form method="POST" action="{{route('tasks.update', ['task' => $task])}}">
         @csrf
+        @method('PUT')
         <div>
             <label for='title'>
                 Title
             </label>
-            <input text='text' name='title' id='title' value="{{ old('title') }}"/>
+            <input text='text' name='title' id='title' value={{$task->title}}/>
             @error('title')
                 <p class='error-msg'>{{$message}}</p>
             @enderror
@@ -17,7 +18,7 @@
             <label for='description'>
                 Description
             </label>
-            <textarea name='description' id='description' rows='2' >{{ old('description') }}</textarea>
+            <textarea name='description' id='description' rows='2' >{{$task->description}}</textarea>
             @error('description')
                 <p class='error-msg'>{{$message}}</p>
             @enderror
@@ -26,12 +27,13 @@
             <label for='long_description'>
                 Detailed escription
             </label>
-            <textarea name='long_description' id='long_description' rows='5'>{{ old('long_description') }}</textarea>
+            <textarea name='long_description' id='long_description' rows='5'>{{$task->long_description ? $task->long_description : ''}}</textarea>
             @error('long_description')
                 <p class='error-msg'>{{$message}}</p>
             @enderror
         </div>
         <a class='btn' href='/'>Cancel</a>
-        <button type='Submit'>Add Task</button>
+        <a class='btn' href='{{route('tasks.delete', ['task' => $task])}}'>Delete Task</a>
+        <button type='Submit'>Edit Task</button>
     </form>
 @endsection

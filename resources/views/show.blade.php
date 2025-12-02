@@ -11,4 +11,7 @@
 
 
     <a class='btn' href='{{ route('tasks.index') }}'>Return</a>
+    <a class='btn' href='{{route('tasks.edit', ['task' => $task])}}'>Edit Task</a>
+    <a class='btn' href='{{route('tasks.delete', ['task' => $task])}}'>Delete Task</a>
+
 @endsection

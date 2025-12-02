@@ -56,3 +56,7 @@ button{
 button:hover{
     background-color: var(--color-gray-600);
 }
+.error-msg{
+    color: var(--color-red-700);
+    font-size: 0.8rem;
+}
