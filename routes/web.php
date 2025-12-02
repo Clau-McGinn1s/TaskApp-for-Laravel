@@ -22,12 +22,12 @@ Route::get('/', function(){
     return redirect()->route('tasks.index');
 });
 
-Route::get('/tasks/{task}/delete', function(Task $task){
+Route::delete('/tasks/{task}/delete', function(Task $task){
     $task->delete();
 
     return redirect()->route('tasks.index')
     ->with('success', 'Task deleted succesfully!');
-})->name('tasks.delete');
+})->name('tasks.destroy');
 
 Route::get('/tasks/{task}/edit', function(Task $task){
     return view('edit', ['task' =>$task]);
@@ -42,7 +42,7 @@ Route::put('/tasks/{task}', function(TaskRequest $request, Task $task){
 
 Route::post('/tasks', function(TaskRequest $request){
     $task = Task::create($request->validated());
-    
+
     return redirect()->route('tasks.show', ['task' => $task])
         ->with('success', 'Task created succesfully!');
 })->name('tasks.store');

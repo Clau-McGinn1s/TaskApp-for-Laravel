@@ -12,6 +12,11 @@
 
     <a class='btn' href='{{ route('tasks.index') }}'>Return</a>
     <a class='btn' href='{{route('tasks.edit', ['task' => $task])}}'>Edit Task</a>
-    <a class='btn' href='{{route('tasks.delete', ['task' => $task])}}'>Delete Task</a>
-
+   
+    <form method='POST' action='{{route('tasks.destroy', ['task' => $task])}}'>
+        @csrf
+        @method('DELETE')
+        <button class='btn-delete mt-5'
+        onclick='return confirm("delete task [ {{ $task->title }} ] ?")'>Delete Task</button>
+    </form>
 @endsection

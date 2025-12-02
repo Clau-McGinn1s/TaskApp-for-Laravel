@@ -33,7 +33,12 @@
             @enderror
         </div>
         <a class='btn' href='/'>Cancel</a>
-        <a class='btn' href='{{route('tasks.delete', ['task' => $task])}}'>Delete Task</a>
         <button type='Submit'>Edit Task</button>
+    </form>
+    <form method='POST' action='{{route('tasks.destroy', ['task' => $task])}}'>
+        @csrf
+        @method('DELETE')
+        <button class='btn-delete mt-5'
+        onclick='return confirm("delete task [ {{ $task->title }} ] ?")'>Delete Task</button>
     </form>
 @endsection

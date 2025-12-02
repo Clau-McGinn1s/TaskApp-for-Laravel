@@ -18,7 +18,7 @@ a{
 a:hover{
     color: blueviolet;
 }
-a.btn{
+a.btn, btn{
     background-color: var(--color-blue-500);
     padding: 10px;
     text-align: center;
@@ -26,9 +26,12 @@ a.btn{
     color: var(--color-white);
     border-radius: 10px;
 }
-a.btn:hover{
+a.btn:hover, btn:hover{
     background-color: var(--color-purple-500);
 }
+
+ 
+
 
 input{
     background-color: var(--color-blue-100);
@@ -60,3 +63,19 @@ button:hover{
     color: var(--color-red-700);
     font-size: 0.8rem;
 }
+
+.btn-delete{
+    background-color: var(--color-amber-500);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-white);
+    border-radius: 10px;
+}
+.btn-delete:hover{
+    background-color: var(--color-amber-900);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-white);
+}  

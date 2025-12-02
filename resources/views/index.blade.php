@@ -4,7 +4,6 @@
     @forelse ($tasks as $task)
         <div class='mb-5'>
             <a href='{{route('tasks.show', ['task' => $task])}}'><h3>{{$task->title}}{{$task->completed ? '     ✓' : ''}}</h3></a>
-            <a href='{{route('tasks.delete', ['task' => $task])}}'><h3>X</h3></a>
             <p>{{$task->description}}</p>
         </div>
     @empty
